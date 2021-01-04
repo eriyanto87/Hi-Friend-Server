@@ -9,7 +9,7 @@ const REGEX_UPPER_LOWER_NUMBER_SPECIAL = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*
 
 userRouter
   .get("/", requireAuth, (req, res) => {
-    res.json(req.user);
+    res.json(UserService.serializeUser(req.user));
   })
   .post("/", bodyParser, (req, res, next) => {
     const knexInstance = req.app.get("db");
