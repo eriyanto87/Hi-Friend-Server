@@ -16,24 +16,30 @@ authRouter.post("/signin", bodyParser, (req, res, next) => {
       });
     }
   }
-  AuthService.getUserWithUsername(knexInstance, username).then((dbUser) => {
-    if (!dbUser) {
-      return res.status(400).json({
-        error: "Incorrect username or password",
-      });
-    }
-    AuthService.comparePasswords(password, dbUser.password).then((isMatch) => {
-      if (!isMatch) {
+  AuthService.getUserWithUsername(knexInstance, username)
+    .then((dbUser) => {
+      if (!dbUser) {
         return res.status(400).json({
           error: "Incorrect username or password",
         });
       }
-      const sub = dbUser.username;
-      const payload = { user_id: dbUser.id };
-      console.log(AuthService.createJwt(sub, payload));
-      res.send({ authToken: AuthService.createJwt(sub, payload) });
-    });
-  });
+      return AuthService.comparePasswords(password, dbUser.password).then(
+        (isMatch) => {
+          if (!isMatch) {
+            return res.status(400).json({
+              error: "Incorrect username or password",
+            });
+          }
+          const sub = dbUser.username;
+          const payload = { user_id: dbUser.id };
+          console.log(`${AuthService.createJwt(sub, payload)}`);
+          res.send({
+            authToken: AuthService.createJwt(sub, payload),
+          });
+        }
+      );
+    })
+    .catch(next);
 });
 
 module.exports = authRouter;
