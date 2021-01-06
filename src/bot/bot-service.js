@@ -2,9 +2,9 @@ const BotService = {
   getUserBot(knex, user_id) {
     return knex("bot").where({ bot_name, user_id }).first();
   },
-  insertBotName(knex, botName) {
+  insertBotName(knex, newBot) {
     return knex
-      .insert(botName)
+      .insert(newBot)
       .into("bot")
       .returning("*")
       .then((bot) => bot[0]);
