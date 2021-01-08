@@ -7,10 +7,17 @@ const bodyParser = express.json();
 
 botRouter
   .use(requireAuth)
-  .get("/", (req, res) => {
-    res.send("hello from bot router");
+  .get("/", (req, res, next) => {
+    // res.send("hello from bot router");
+    const knexInstance = req.app.get("db");
+    const userId = req.user.id;
+    BotService.getUserBot(knexInstance, userId)
+      .then((botName) => {
+        res.json(botName);
+      })
+      .catch(next);
   })
-  .post((req, res, next) => {
+  .post("/", bodyParser, (req, res, next) => {
     const knexInstance = req.app.get("db");
     const userId = req.user.id;
     console.log(userId);
