@@ -1,26 +1,60 @@
-# Express Boilerplate!
+# Hi, Friend App
 
-This is a boilerplate project used for starting new projects!
+- [Live_App](https://hifriend.vercel.app/)
+- [Server_Side_Repo](https://github.com/eriyanto87/hi-friend-server)
+- [Client_Side_Repo](https://github.com/eriyanto87/hi-friend-client)
 
-## Set up
+## API Documentation
 
-Complete the following steps to start a new project (NEW-PROJECT-NAME):
+- [BASE_URL](https://hidden-bayou-75178.herokuapp.com/)
 
-1. Clone this repository to your local machine `git clone BOILERPLATE-URL NEW-PROJECTS-NAME`
-2. `cd` into the cloned repository
-3. Make a fresh start of the git history for this project with `rm -rf .git && git init`
-4. Install the node dependencies `npm install`
-5. Move the example Environment file to `.env` that will be ignored by git and read by the express server `mv example.env .env`
-6. Edit the contents of the `package.json` to use NEW-PROJECT-NAME instead of `"name": "express-boilerplate",`
+Get /api/bot
 
-## Scripts
+- Provides array of bot name
 
-Start the application `npm start`
+Example request/response:
 
-Start nodemon for the application `npm run dev`
+```
+GET https://hidden-bayou-75178.herokuapp.com/api/bot
 
-Run the tests `npm test`
+HTTP STATUS 200 OK
 
-## Deploying
+[
+ "evi"
+]
 
-When your new project is ready for deployment, add a new Heroku application with `heroku create`. This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's master branch.
+```
+
+POST /api/bot
+
+Example request/response:
+
+```
+
+POST https://sleepy-harbor-21485.herokuapp.com/api/bot
+REQ BODY: {
+    "bot_name": "evi",
+}
+
+Response:
+[
+"Evi"
+]
+
+```
+
+### Front-end technologies
+
+Reactjs, HTML, CSS, JavaScript, HTML
+
+### Back-end technologies
+
+Node.js, Express
+
+### Database
+
+PostgreSQL
+
+### Hosted on
+
+Heroku and Vercel
