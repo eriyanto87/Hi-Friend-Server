@@ -16,7 +16,7 @@ app.use(morgan(morganOption));
 app.use(helmet());
 app.use(
   cors({
-    origin: process.env.CLIENT_ORIGIN || "http://localhost:3000",
+    origin: process.env.CLIENT_ORIGIN,
   })
 );
 
