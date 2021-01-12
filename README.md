@@ -15,6 +15,7 @@ Example request/response:
 ```
 
 POST https://sleepy-harbor-21485.herokuapp.com/api/user
+
 REQ BODY: {
     "username": "Test",
     "password": "Password123!",
@@ -31,9 +32,7 @@ Response:
 
 ```
 
-Get /api/bot
-
-- Provides array of bot name
+GET /api/bot
 
 Example request/response:
 
@@ -55,6 +54,7 @@ Example request/response:
 ```
 
 POST https://sleepy-harbor-21485.herokuapp.com/api/bot
+
 REQ BODY: {
     "bot_name": "evi",
 }
