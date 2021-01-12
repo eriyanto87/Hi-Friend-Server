@@ -8,6 +8,29 @@
 
 - [BASE_URL](https://hidden-bayou-75178.herokuapp.com/)
 
+POST /api/user
+
+Example request/response:
+
+```
+
+POST https://sleepy-harbor-21485.herokuapp.com/api/user
+REQ BODY: {
+    "username": "Test",
+    "password": "Password123!",
+    "first_name": "Test",
+    "last_name": "Account"
+}
+
+Response:
+[
+    "username": "Test",
+    "first_name": "Test",
+    "last_name": "Account"
+]
+
+```
+
 Get /api/bot
 
 - Provides array of bot name
@@ -45,7 +68,7 @@ Response:
 
 ### Front-end technologies
 
-Reactjs, HTML, CSS, JavaScript, HTML
+Reactjs, HTML, CSS, JavaScript
 
 ### Back-end technologies
 
