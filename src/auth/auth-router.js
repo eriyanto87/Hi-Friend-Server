@@ -7,7 +7,6 @@ authRouter.post("/signin", bodyParser, (req, res, next) => {
   const knexInstance = req.app.get("db");
 
   const { username, password } = req.body;
-  console.log(username, password);
 
   for (const field of ["username", "password"]) {
     if (!req.body[field]) {
@@ -32,7 +31,7 @@ authRouter.post("/signin", bodyParser, (req, res, next) => {
           }
           const subject = dbUser.username;
           const payload = { user_id: dbUser.id };
-          console.log(`${AuthService.createJwt(subject, payload)}`);
+
           res.send({
             authToken: AuthService.createJwt(subject, payload),
           });

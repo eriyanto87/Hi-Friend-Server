@@ -13,9 +13,6 @@ const BotService = {
       .returning("*")
       .then((bot) => bot[0]);
   },
-  deleteBot(knex, id) {
-    return knex.from("bot").where({ id }).delete();
-  },
 };
 
 module.exports = BotService;

@@ -25,7 +25,6 @@ const UserService = {
       username: user.username,
     };
   },
-  getConversations() {},
 };
 
 module.exports = UserService;

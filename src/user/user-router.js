@@ -57,6 +57,5 @@ userRouter.post("/", bodyParser, (req, res, next) => {
     });
   });
 });
-//       const hashedPassword = UserService.hashPassword(password);
 
 module.exports = userRouter;
